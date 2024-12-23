@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Page with Image, Link, and Scroll</title>
+    <style>
+       
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            line-height: 1.6;
+            
+        }
+        
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #5893d6; 
+            color: white;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        header p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .navbar
+       a{
+            position: relative;
+            color:white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 20px;
+            transition: 0.3s;
+       }
+
+        .navbar a:hover
+        {
+             border-radius: 10px;
+             background: white;
+             color:deepskyblue;
+        }
+
+
+        .scroll-link {
+            font-size: 18px;
+            color: #fff;
+            text-decoration: none;
+            border: 2px solid white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .scroll-link:hover {
+            background-color: #1b7ded;
+        }
+
+        #scroll-section {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #f4f4f4; 
+        }
+
+        #scroll-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .link {
+            display: inline-block;
+            margin-top:0%;
+            font-size: 18px;
+            color: #4CAF50;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+        }
+
+        .link:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>RASH HOME LOANS!!</h1>
+        <p>A Home Loan Website Designed For You.!!</p>
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#more">More</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <section class="home" id="home">
+            <div class="content">
+                
+            </div>
+        </section>
+         <p></p>
+        <a href="#scroll-section" class="scroll-link">Scroll Down</a>
+    </header>
+
+    <section id="scroll-section">
+        <h2>Welcome To Build Your Dream House!!</h2>
+        <img src="Homeloan.jpg" alt="Sample Image" class="image">
+        <h1><span style="color:olivedrab;">"Unlock your dream home with our affordable home loan options and easy approval process!!"</span></h1>
+        <div style="text-align: center;" class="image-container">
+        <img src="Homelogo.png" width="200" height="200" alt="Image 1" class="image">
+        <img src="Key.png" width="190" height="190" alt="Image 2" class="image">
+        <img src="Money.png" width="190" height="190" alt="Image 2" class="image">
+        </div>
+        <h1>Click Here to Fill the application form!!</h1>
+        <a href="Form.html" target="_blank" class="link">Application Form</a>
+        <h3>Click Here to Check your Eligibility criteria to apply loan!!</h3>
+        <a href="Eligibility.html" target="_blank" class="link">Eligibility criteria</a>
+        <h1>Click Here to Calculate your monthly EMI </h1>
+        <a href="Emi.html" target="_blank" class="link">EMI Calculator</a>
+        <h1>Click Here to Upload Required Document!! </h1>
+        <a href="Redocument.html" target="_blank" class="link">Required Documents</a>
+        <h1>Click Here for verification of your Document!! </h1>
+        <a href="verify.html" target="_blank" class="link">verification</a>
+        <h1>Check for the Approval</h1> 
+        <a href="Approval.html" target="_blank" class="link">Approval</a>
+        <p></p>
+        <h1><span style="color: darkmagenta;">Thank You!! For visiting RASH HOME LOANS.Hope the information was useful for you..</span></h1>
+
+
+
+    </section>
+
+    <footer>
+      <h3>Ready to Make Your Homeownership Dreams a Reality?</h3>
+   
+           <p>Thank you for visiting RASH HOME LOANS!! Get in touch with us today to explore flexible home loan options that suit your needs.
+            RASH HOME LOANS is here to guide you every step of the way.
+            
+            Contact Us | Privacy Policy | Terms & Conditions
+            © 2024 RASH HOME LOANS. All Rights Reserved.
+    </p>
+    </footer>
+</body>
+</html>

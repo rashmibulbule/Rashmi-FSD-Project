@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Loan Eligibility Check</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: auto;
+        }
+        .input-group {
+            margin: 10px 0;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"], input[type="number"], input[type="email"], select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Check Home Loan Eligibility</h2>
+        <form id="eligibilityForm">
+            <div class="input-group">
+                <label for="age">Age (in years):</label>
+                <input type="number" id="age" required>
+            </div>
+
+            <div class="input-group">
+                <label for="income">Monthly Income (in INR):</label>
+                <input type="number" id="income" required>
+            </div>
+
+            <div class="input-group">
+                <label for="creditScore">Credit Score:</label>
+                <input type="number" id="creditScore" required>
+            </div>
+
+            <div class="input-group">
+                <label for="loanAmount">Loan Amount (in INR):</label>
+                <input type="number" id="loanAmount" required>
+            </div>
+
+            <button type="button" onclick="checkEligibility()">Check Eligibility</button>
+        </form>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function checkEligibility() {
+            const age = parseInt(document.getElementById('age').value);
+            const income = parseInt(document.getElementById('income').value);
+            const creditScore = parseInt(document.getElementById('creditScore').value);
+            const loanAmount = parseInt(document.getElementById('loanAmount').value);
+
+            let resultText = '';
+
+            if (age < 18) {
+                resultText = 'You must be at least 18 years old to apply for a home loan.';
+            } else if (income < 2000) {
+                resultText = 'Your monthly income must be at least 2000 INR.';
+            } else if (creditScore < 650) {
+                resultText = 'Your credit score must be 650 or higher.';
+            } else if (loanAmount > income * 20) {
+                resultText = 'The loan amount you are applying for is too high for your income.';
+            } else {
+                resultText = 'Congratulations! You are eligible for the home loan.';
+            }
+
+            document.getElementById('result').innerText = resultText;
+        }
+    </script>
+
+</body>
+</html>

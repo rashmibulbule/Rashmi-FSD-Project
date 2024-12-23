@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Loan EMI Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: auto;
+        }
+        .input-group {
+            margin: 10px 0;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="number"], input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Home Loan EMI Calculator</h2>
+        <form id="emiForm">
+            <div class="input-group">
+                <label for="loanAmount">Loan Amount (in INR):</label>
+                <input type="number" id="loanAmount" required>
+            </div>
+
+            <div class="input-group">
+                <label for="interestRate">Annual Interest Rate (%):</label>
+                <input type="number" id="interestRate" step="0.1" required>
+            </div>
+
+            <div class="input-group">
+                <label for="loanTenure">Loan Tenure (in years):</label>
+                <input type="number" id="loanTenure" required>
+            </div>
+
+            <button type="button" onclick="calculateEMI()">Calculate EMI</button>
+        </form>
+
+        <div class="result" id="result"></div>
+    </div>
+    <script>
+        function calculateEMI() {
+            const loanAmount = parseFloat(document.getElementById('loanAmount').value);
+            const annualInterestRate = parseFloat(document.getElementById('interestRate').value);
+            const loanTenure = parseFloat(document.getElementById('loanTenure').value);
+
+            if (isNaN(loanAmount) || isNaN(annualInterestRate) || isNaN(loanTenure) || loanAmount <= 0 || annualInterestRate <= 0 || loanTenure <= 0) {
+                document.getElementById('result').innerText = "Please enter valid values.";
+                return;
+            }
+
+            const monthlyInterestRate = annualInterestRate / 12 / 100;
+         
+            const loanTenureInMonths = loanTenure * 12;
+
+           
+            const emi = (loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanTenureInMonths)) /
+                        (Math.pow(1 + monthlyInterestRate, loanTenureInMonths) - 1);
+
+            
+            if (emi > 0) {
+                document.getElementById('result').innerText = "Your Monthly EMI is: " + emi.toFixed(2) + " INR";
+            } else {
+                document.getElementById('result').innerText = "Invalid input. Please check the values.";
+            }
+        }
+    </script>
+
+</body>
+</html>

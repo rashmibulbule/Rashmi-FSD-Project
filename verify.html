@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table th, table td {
+            text-align: left;
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+        table th {
+            background-color: #007bff;
+            color: white;
+        }
+        .status {
+            font-weight: bold;
+        }
+        .status-verified {
+            color: #28a745;
+        }
+        .status-pending {
+            color: #ffc107;
+        }
+        .status-rejected {
+            color: #dc3545;
+        }
+        input[type="file"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: calc(100% - 20px);
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #28a745;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Document Verification</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Document</th>
+                <th>Status</th>
+                <th>Upload</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>ID Proof</td>
+                <td id="status-id" class="status status-pending">Pending</td>
+                <td><input type="file" id="file-id" onchange="verifyDocument('ID Proof', 'status-id', this)"></td>
+            </tr>
+            <tr>
+                <td>Income Proof</td>
+                <td id="status-income" class="status status-pending">Pending</td>
+                <td><input type="file" id="file-income" onchange="verifyDocument('Income Proof', 'status-income', this)"></td>
+            </tr>
+            <tr>
+                <td>Property Documents</td>
+                <td id="status-property" class="status status-pending">Pending</td>
+                <td><input type="file" id="file-property" onchange="verifyDocument('Property Documents', 'status-property', this)"></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="message" id="success-message">All documents have been verified successfully!</div>
+</div>
+
+<script>
+    function verifyDocument(documentName, statusId, input) {
+        const file = input.files[0];
+
+        if (file) {
+            
+            setTimeout(() => {
+               
+                const isVerified = Math.random() > 0.2; 
+
+                const statusElement = document.getElementById(statusId);
+                if (isVerified) {
+                    statusElement.textContent = "Verified";
+                    statusElement.className = "status status-verified";
+                } else {
+                    statusElement.textContent = "Rejected";
+                    statusElement.className = "status status-rejected";
+                }
+
+                checkAllVerified();
+            }, 1000); 
+        }
+    }
+
+    function checkAllVerified() {
+        const statuses = document.querySelectorAll(".status");
+        let allVerified = true;
+
+        statuses.forEach(status => {
+            if (!status.classList.contains("status-verified")) {
+                allVerified = false;
+            }
+        });
+
+        const message = document.getElementById("success-message");
+        if (allVerified) {
+            message.style.display = "block";
+        } else {
+            message.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>

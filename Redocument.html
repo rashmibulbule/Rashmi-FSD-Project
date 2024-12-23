@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+        .container h1 {
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="file"],
+        button {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .thank-you-message {
+            display: none;
+            text-align: center;
+        }
+        .thank-you-message h2 {
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+        .thank-you-message p {
+            font-size: 1.2em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="form-container">
+    <h1>Upload Required Documents</h1>
+    <form id="uploadForm">
+        <div class="form-group">
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="id-proof">Upload ID Proof</label>
+            <input type="file" id="id-proof" name="id-proof" required>
+        </div>
+        <div class="form-group">
+            <label for="income-proof">Upload Income Proof</label>
+            <input type="file" id="income-proof" name="income-proof" required>
+        </div>
+        <div class="form-group">
+            <label for="property-docs">Upload Property Documents</label>
+            <input type="file" id="property-docs" name="property-docs" required>
+        </div>
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+</div>
+
+<div class="container thank-you-message" id="thank-you-message">
+    <h2>Thank You!</h2>
+    <p>Your documents have been submitted successfully. We will contact you soon.</p>
+</div>
+
+<script>
+    function submitForm() {
+       
+        document.getElementById('form-container').style.display = 'none';
+
+        document.getElementById('thank-you-message').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
